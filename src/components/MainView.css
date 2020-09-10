@@ -1,0 +1,9 @@
+.centrar{
+    position: absolute;
+    left: 50%;
+}
+
+.texto {
+    text-align: center;
+    
+}

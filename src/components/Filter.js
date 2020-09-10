@@ -1,8 +1,6 @@
 import React from 'react';
 import { InputLabel, TextField, Fab, Select, MenuItem } from '@material-ui/core';
-import CheckIcon from '@material-ui/icons/Check';
 import moment from "moment";
-import DeleteIcon from '@material-ui/icons/Delete';
 
 export default class Filter extends React.Component {
 
@@ -34,13 +32,13 @@ export default class Filter extends React.Component {
     }
 
     handleSubmit() {
-        if(this.state.description != ""){
+        if(this.state.description !== ""){
             localStorage.setItem("descriptionFilter", this.state.description);
         }
-        if(this.state.responsible != "") {
+        if(this.state.responsible !== "") {
             localStorage.setItem("responsibleFilter", this.state.responsible);
         }
-        if(this.state.status != "") {
+        if(this.state.status !== "") {
             localStorage.setItem("statusFilter", this.state.status);
         }
         window.location.href = "/main";

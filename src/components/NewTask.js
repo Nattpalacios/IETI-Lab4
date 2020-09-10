@@ -34,7 +34,8 @@ export default class NewTask extends React.Component {
         this.setState({dueDate: date.target.value});
     }
 
-    handleSubmit() {
+    handleSubmit(e) {
+        e.preventDefault();
         const newTask = {
             description: this.state.description,
             responsible: {
@@ -47,7 +48,7 @@ export default class NewTask extends React.Component {
         const currentList = JSON.parse(localStorage.getItem("tasksLists"));
         currentList.push(newTask);
         localStorage.setItem("tasksLists", JSON.stringify(currentList));
-        window.location.href = "/main";
+        window.location.href = "/";
     }
 
     render() {

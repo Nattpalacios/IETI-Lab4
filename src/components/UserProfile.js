@@ -1,7 +1,6 @@
 import React from 'react';
-import { InputLabel, TextField, Fab, Select, MenuItem } from '@material-ui/core';
+import { TextField, Fab } from '@material-ui/core';
 import CheckIcon from '@material-ui/icons/Check';
-import moment from "moment";
 
 export default class UserProfile extends React.Component {
 
@@ -39,22 +38,28 @@ export default class UserProfile extends React.Component {
         this.setState({confirmPassword : confirmPasswd.target.value});
     }
 
-    handleSubmit() {
-        if(this.state.name != ""){
-            localStorage.setItem("name", this.state.name);
+    handleSubmit(e) {
+        e.preventDefault();
+        const user = JSON.parse(localStorage.getItem('user'));
+        if(this.state.name !== ""){
+            //localStorage.setItem("name", this.state.name);
+            user.name = this.state.name;
         }
-        if(this.state.email != ""){
-            localStorage.setItem("email", this.state.email);
-            localStorage.setItem("isLoggedIn", true);
+        if(this.state.email !== ""){
+            //localStorage.setItem("email", this.state.email);
+            user.email = this.state.email;
         }
-        if(this.state.password != "" || this.state.confirmPassword != ""){
+        if(this.state.password !== "" || this.state.confirmPassword !== ""){
             if(this.state.password !== this.state.confirmPassword) {
-                this.throwAlert("The passwords don't match")
+                alert("The passwords don't match");
                 return
             } else {
-                localStorage.setItem("password", this.state.password);
+                //localStorage.setItem("password", this.state.password);
+                user.password = this.state.password;
             }
         }
+        localStorage.setItem("user", JSON.stringify(user));
+        window.location.href="/";
     }
 
     render() {

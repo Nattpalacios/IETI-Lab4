@@ -30,15 +30,27 @@ export class Login extends React.Component{
         this.setState({email : mail.target.value});
     }
 
-    handleSubmit() {
+    handleSubmit(e) {
+        e.preventDefault();
+        console.log("ENTRE AL METODO");
+        console.log(localStorage.getItem("email"));
+        console.log(this.state.email);
+        console.log(localStorage.getItem("password"));
+        console.log(this.state.password);
         if(localStorage.getItem("email") === this.state.email && localStorage.getItem("password") === this.state.password) {
             console.log("AQUI ESTOY");
             localStorage.setItem("isLoggedIn", true);
             localStorage.setItem("tasksLists", JSON.stringify([]));
-            this.props.handleLogin();
+            const user = {
+                name : localStorage.getItem("name"),
+                email : localStorage.getItem("email"),
+                password : localStorage.getItem("password")
+            }
+            localStorage.setItem("user", JSON.stringify(user));
         } else {
             alert("El usuario no esta registrado.");
         }
+        window.location.href="/";
     }
 
     render() {

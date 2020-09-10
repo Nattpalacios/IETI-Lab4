@@ -3,9 +3,7 @@ import ResponsiveDrawer from './ResponsiveDrawer';
 import TaskList from './TaskList';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
-import EditIcon from '@material-ui/icons/Edit';
-import Button from '@material-ui/core/Button';
-
+import './MainView.css';
 
 export class MainView extends React.Component {
 
@@ -38,30 +36,27 @@ export class MainView extends React.Component {
         console.log(task);
 
         return(
-            <div className = "MainView">
+            <div>
                 <div>
                     <ResponsiveDrawer></ResponsiveDrawer>
                     <br />
                     <br />
-                    <TaskList tasksList = {task}></TaskList>
                     <br />
-                    <Fab href="/newTask" color="secondary" aria-label="add">
+                </div>
+                <div>
+                    <br />
+                    <div className="texto">
+                        <TaskList tasksList = {task}></TaskList>
+                    </div>
+                    <br />
+                    <Fab href="/newTask" color="secondary" aria-label="add" className="centrar">
                         <AddIcon />
                     </Fab>
-                    <Fab href="/addFilter" color="primary" aria-label="add">
+                    <Fab href="/addFilter" color="primary" aria-label="add" className="centrar">
                         Filter
                     </Fab>
                 </div>
-                <br />
-                <div>
-                    <Button
-                        href="/userProfile"
-                        variant="contained"
-                        color="info"
-                    >
-                        Edit Profile
-                    </Button>
-                </div>
+                
                 
             </div>
         );

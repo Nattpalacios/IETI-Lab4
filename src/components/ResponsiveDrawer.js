@@ -17,6 +17,8 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import {Image} from "@material-ui/icons";
+import Button from '@material-ui/core/Button';
+
 
 const drawerWidth = 240;
 
@@ -56,8 +58,9 @@ const useStyles = makeStyles((theme) => ({
 function ResponsiveDrawer(props) {
   const { container } = props;
   const classes = useStyles();
-  const name = localStorage.getItem('name');
-  const email = localStorage.getItem('email');
+  const user = JSON.parse(localStorage.getItem('user'));
+  const name = user.name;
+  const email = user.email;
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -78,6 +81,15 @@ function ResponsiveDrawer(props) {
           <Typography variant = "h6" noWrap>
               {email}
           </Typography>
+      </div>
+      <div>
+          <Button
+              href="/userProfile"
+              variant="contained"
+              color="secondary"
+          >
+              Edit Profile
+          </Button>
       </div>
       
       <Divider />
@@ -110,6 +122,7 @@ function ResponsiveDrawer(props) {
             {"Task planner"}
           </Typography>
         </Toolbar>
+        
       </AppBar>
       <nav className={classes.drawer} aria-label="mailbox folders">
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}

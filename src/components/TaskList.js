@@ -2,6 +2,7 @@ import React from 'react';
 import Task from './Task';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
+import './TaskList.css'
 
 export default class TaskList extends React.Component {
 
@@ -11,7 +12,7 @@ export default class TaskList extends React.Component {
             
             <Container component="main" maxWidth="xs">
             <CssBaseline />
-                <div>
+                <div className="cajita">
                     {this.props.tasksList.map((task, i) => {
                         return (
                             <Task

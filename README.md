@@ -2,7 +2,7 @@
 
 ## Heroku Deploy
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://ieti-lab3-nataliapalacios.herokuapp.com/)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://ieti-lab4-nataliapalacios.herokuapp.com/)
 
 ## Running Instructions
 
