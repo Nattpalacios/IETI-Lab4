@@ -31,7 +31,8 @@ export default class Filter extends React.Component {
         this.setState({dueDate: date.target.value});
     }
 
-    handleSubmit() {
+    handleSubmit(e) {
+        e.preventDefault();
         if(this.state.description !== ""){
             localStorage.setItem("descriptionFilter", this.state.description);
         }
@@ -41,14 +42,14 @@ export default class Filter extends React.Component {
         if(this.state.status !== "") {
             localStorage.setItem("statusFilter", this.state.status);
         }
-        window.location.href = "/main";
+        window.location.href = "/";
     }
 
     handleClear() {
         localStorage.removeItem("descriptionFilter");
         localStorage.removeItem("responsibleFilter");
         localStorage.removeItem("statusFilter");
-        window.location.href = "/main";
+        window.location.href = "/";
 
     }
 
